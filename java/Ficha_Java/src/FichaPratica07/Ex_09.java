@@ -60,7 +60,7 @@ public class Ex_09 {
         while (in.hasNextLine()){
             linha=in.nextLine();
             cont=linha.split(",");
-            String aux[]=cont[3].split(":");
+            String[] aux=cont[3].split(":");
             if(Integer.parseInt(aux[0])>min){
                 min=Integer.parseInt(aux[0]);
                 seg=Integer.parseInt(aux[1]);

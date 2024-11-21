@@ -1,4 +1,5 @@
 package HotelTematico;
 
-public class Menus {
+public class Dashboard {
+
 }
