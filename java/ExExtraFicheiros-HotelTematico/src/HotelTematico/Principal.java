@@ -6,8 +6,8 @@ import java.util.Scanner;
 import static HotelTematico.Funcoes.*;
 import static HotelTematico.Menus.*;
 
-public class Main {
-    public static void main(String[] args) throws FileNotFoundException {
+public class Principal {
+    public static void HotelTematico() throws FileNotFoundException {
         Scanner input=new Scanner(System.in);
         menuLogin();
         String userName,password;
@@ -18,4 +18,7 @@ public class Main {
             password=input.next();
         }while (userLogin(userName,password));
     }
+    public static void main(String[] args) throws FileNotFoundException {
+        HotelTematico();
+}
 }
