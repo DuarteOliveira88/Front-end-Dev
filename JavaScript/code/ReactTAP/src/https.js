@@ -29,3 +29,17 @@ export async function updatePlaces(userPlaces) {
     }
     return data.message;
 }
+export function getPresent() {
+    const[availablePresents, setAvailablePresents] = useState([]);
+    useEffect(() =>
+        {
+          fetch('http://localhost:3000/listaPrendas')
+          .then((response) => { return response.json()})
+          .then((resData) => {  
+           console.log(resData)
+           setAvailablePresents(resData.present);
+          });
+        },
+        []);
+        return availablePresents;
+}

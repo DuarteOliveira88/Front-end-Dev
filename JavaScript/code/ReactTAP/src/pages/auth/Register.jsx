@@ -13,7 +13,6 @@ export default function Signup() {
             setPasswordAreNotEqual(true)
             return
         }
-        console.log(data)
         const user={
             email:data.email,
             passowrd: data.passowrd,
@@ -22,7 +21,6 @@ export default function Signup() {
             role: data.role,
             termsAccepted: data.terms === "on"
         }
-        console.log("6")
         const response = fetch("http://localhost:3000/signup", {
             method:"POST",
             headers: {"Content-Type": "application/json"},
