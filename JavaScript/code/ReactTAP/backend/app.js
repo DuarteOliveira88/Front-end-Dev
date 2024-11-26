@@ -33,6 +33,13 @@ app.get("/user-places", async (req, res) => {
 
   res.status(200).json({ places });
 });
+app.get("/listaPrendas", async (req, res) => {
+  const fileContent = await fs.readFile("./data/listaPrendas.json");
+
+  const present = JSON.parse(fileContent);
+
+  res.status(200).json({ present });
+});
 
 app.post("/signup",async(req,res )=>{
   const fileContent = await fs.readFile("./data/users.json");
@@ -51,7 +58,21 @@ app.put("/user-places", async (req, res) => {
   res.status(200).json({ message: "User places updated!" });
 });
 
+app.post("/listaPrendas",async(req,res )=>{
+  const fileContent = await fs.readFile("./data/listaPrendas.json");
+  const present=JSON.parse(fileContent);
+  const newPresent = req.body;
+  present.push(newPresent); 
+  await fs.writeFile("./data/listaPrendas.json",JSON.stringify(present, null, 2));
+  res.status(200).json({ message:"Present inserted!" });
+})
+app.put("/listaPrendas", async (req, res) => {
+  const present = req.body.prendas;
 
+  await fs.writeFile("./data/listaPrendas.json", JSON.stringify(present));
+
+  res.status(200).json({ message: "Presents updated!" });
+});
 // 404
 app.use((req, res, next) => {
   if (req.method === "OPTIONS") {
