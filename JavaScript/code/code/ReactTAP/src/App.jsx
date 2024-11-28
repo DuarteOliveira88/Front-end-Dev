@@ -30,18 +30,24 @@ import PlanetasStarWars from './pages/PlanetasStarWars'
 import FilmesStarWars from './pages/FilmesStarWars'
 import Login from './pages/auth/Login'
 import Register from "./pages/auth/Register"
+import Logout from './pages/auth/Logout'
+import ProtectedRoute from './ProtectedRoute'
 
 let index = 0;
-const ROUTER = createBrowserRouter([{path:"/",element: <RaizLayout/>, errorElement: <ErrorPage/> ,
-  children:[{path:"/",element:<HomePage/>},
-    {path:"/shopping-list", element:<IndexShoppingList/>},
+const ROUTER = createBrowserRouter([{path:"/",element: <RaizLayout/>, errorElement: <ErrorPage/> ,id:"root",loader:()=>{
+  return {login: localStorage.getItem("token") ? true: false}
+},
+  children:[
+    {path:"/",element:<HomePage/>},
+    {path:"/shopping-list", element:<ProtectedRoute/>,children:[{path:"",element:<IndexShoppingList/>}]},
     {path:"/contact",element:<Contact/>},
     {path:"/christmas-gitf",element: <ChristmasGifts/>},
     {path:"/places",element:<AvailablePlaces/>},
     {path:"/planetas",element:<PlanetasStarWars/>},
     {path:"/filmes",element:<FilmesStarWars/>},
     {path:"/login",element:<Login/>},
-    {path:"/register",element:<Register/>}
+    {path:"/register",element:<Register/>},
+    {path:"/logout", element:<Logout/>}
     ]},
     // {path:"/places",element:<AvailablePlaces/>}
 ])  
