@@ -9,7 +9,7 @@ export default function EncomendaConsumidor() {
     const [userPrato, setuserPrato] = useState([]);
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const availablePratos = getData();
-   
+   //meter aqui
    
       function handleStartRemovePrato(prato) {
         setModalIsOpen(true);
@@ -23,6 +23,7 @@ export default function EncomendaConsumidor() {
    
      
       function handleSelectPrato(selectedPrato) {
+        //meter aqui
         setuserPrato((prevPickedPratos) => {
           if (!prevPickedPratos) {
             prevPickedPratos = [];

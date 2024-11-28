@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom"
 export default function Signup() {
     const [passwordAreNotEqual, setPasswordAreNotEqual] = useState(false)
     const navigate = useNavigate()
+    const logado=localStorage.getItem("role");
+    console.log("", logado)
     function handleSubmit(event) {
         event.preventDefault()
         const formData= new FormData(event.target)
@@ -80,8 +82,8 @@ export default function Signup() {
           <label htmlFor="phone">What best describes your role?</label>
           <select id="role" name="role" required>
             <option value="Cliente">Cliente</option>
-            <option value="Cozinheiro">Cozinheiro</option>
-            <option value="Gestor">Gestor</option>
+            {(logado=="Cozinheiro" || logado=="Gestor") && <option value="Cozinheiro">Cozinheiro</option>}
+            {logado=="Gestor " &&<option value="Gestor">Gestor</option>}
           </select>
         </div>
         <div className="control">

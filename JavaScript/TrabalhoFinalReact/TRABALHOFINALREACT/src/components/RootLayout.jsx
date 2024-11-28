@@ -10,7 +10,7 @@ export default function RootLayout(){
         <p><Link to="/encomenda">Faz a tua encomenda</Link></p>
         {(role==="Cozinheiro" ||role==="Gestor" ) &&<p><Link to="/cozinha">Cozinha</Link></p>}
         {role==="Gestor" &&<p><Link to="/gestor">Pagina Gestor</Link></p>}
-        {!loader.login &&<p><Link to="/register">Registar</Link></p>}
+        <p><Link to="/register">Registar</Link></p>
         {!loader.login &&<p><Link to="/login">Logar</Link></p>}
         {loader.login &&<p><Link to="/logout">Deslogar</Link></p>}
         <Outlet/>
