@@ -1,0 +1,20 @@
+[
+  {
+    "email": "a@a.com",
+    "password": "a",
+    "confirmPassword": "a",
+    "first-name": "aa",
+    "last-name": "a",
+    "role": "Gestor",
+    "terms": "on"
+  },
+  {
+    "email": "cozinha@email.com",
+    "password": "a",
+    "confirmPassword": "a",
+    "first-name": "Duarte",
+    "last-name": "Oliveira",
+    "role": "Cozinheiro",
+    "terms": "on"
+  }
+]
