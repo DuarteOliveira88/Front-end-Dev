@@ -58,7 +58,7 @@ export default function ChristmasGifts() {
             <TabButton isActive={content == "MAE"} onSelect={() => handleSelected2("MAE")}>Mae</TabButton>
             <TabButton isActive={content == "PAI"} onSelect={() => handleSelected2("PAI")}>Pai</TabButton>
             {/* div de cont dinamico */}
-            {!availablePresents? (<p>Selecione uma lista</p>) : (
+            {!content? (<p>Selecione uma lista</p>) : (
                 <div>
                     {availablePresents.filter((item)=> item.daPresente==content).map(((item) => (<LinhaListaNatal key={item.remetente} {...item} />)))}
                 </div>)

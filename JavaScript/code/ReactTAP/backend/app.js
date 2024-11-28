@@ -66,13 +66,7 @@ app.post("/listaPrendas",async(req,res )=>{
   await fs.writeFile("./data/listaPrendas.json",JSON.stringify(present, null, 2));
   res.status(200).json({ message:"Present inserted!" });
 })
-app.put("/listaPrendas", async (req, res) => {
-  const present = req.body.prendas;
 
-  await fs.writeFile("./data/listaPrendas.json", JSON.stringify(present));
-
-  res.status(200).json({ message: "Presents updated!" });
-});
 // 404
 app.use((req, res, next) => {
   if (req.method === "OPTIONS") {
