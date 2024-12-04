@@ -12,7 +12,7 @@ public class Conta {
 
     public void transferencia(double valor, Conta contaDestinada){
         if(this.saldo>valor){
-            contaDestinada.saldo=valor;
+            contaDestinada.saldo+=valor;
             System.out.println("Transferencia efetuada com sucesso");
             this.saldo-=valor;
         }else {
