@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import static GameStart.Menus.filesMenu;
+import static GameStart.PathFile.pathMenuFilesNum;
 
 public class FunctionsADM {
     /**
@@ -49,12 +50,8 @@ public class FunctionsADM {
             System.out.print("Input: ");
             option= input.next();
         }while (!(option.equals("1")||option.equals("2")||option.equals("3")||option.equals("4")||option.toLowerCase().trim().equals("sair")));
-        String[] path=new String[4];//criar num ficheiro a parte chamado pathFile
-        path[0]="Files/GameStart_AdminLogin.csv";
-        path[1]="Files/GameStart_Categorias.csv";
-        path[2]="Files/GameStart_Clientes.csv";
-        path[3]="Files/GameStart_Vendas.csv";
-        Scanner in = new Scanner(new File(path[Integer.parseInt(option)-1]));
+        String path=pathMenuFilesNum(Integer.parseInt(option)-1);
+        Scanner in = new Scanner(new File(pathMenuFilesNum(Integer.parseInt(option)-1)));
         while (in.hasNextLine()){
             String line=in.nextLine();
             System.out.println(line);

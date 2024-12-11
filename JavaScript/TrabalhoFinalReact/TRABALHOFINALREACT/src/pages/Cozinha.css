@@ -1,0 +1,51 @@
+
+.cozinha-container {
+    padding: 20px;
+  }
+  
+  .cozinha-title {
+    font-size: 24px;
+    color: #333;
+  }
+  
+
+  .cozinha-empty {
+    font-size: 16px;
+    color: #666;
+    text-align: center;
+  }
+
+  .cozinha-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .cozinha-table th,
+  .cozinha-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .cozinha-table th {
+    background-color: #f9f9f9;
+  }
+  
+
+  .btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .btn-warning {
+    background-color: #f0ad4e;
+    margin-right: 5px;
+  }
+  
+  .btn-success {
+    background-color: #5cb85c;
+  }
+  

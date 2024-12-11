@@ -16,13 +16,14 @@ import Pagamento from './pages/Pagamento'
 import RouteCozinha from './protectedRoutes/RouteCozinha'
 import RouteGestor from './protectedRoutes/RouteGestor'
 import RoutePagamento from './protectedRoutes/RoutePagamento'
+import RouteComsumidor from './protectedRoutes/RouteConsumidor'
 
 const Router=createBrowserRouter([{path:"/",element: <RootLayout/>, errorElement: <ErrorPage/>,id:"root",loader:()=>{
   return {login: localStorage.getItem("token") ? true:false}
 },
     children:[
       {path:"/", element: <Homepage/>},
-      {path:"/encomenda", element: <EncomendaConsumidor/>},
+      {path:"/encomenda", element: <RouteComsumidor/>, children:[{path:"",element:<EncomendaConsumidor/>}]},
       {path:"/cozinha",element:<RouteCozinha/>, children: [{path:"",element:<Cozinha/>}]},
       {path:"/gestor",element:<RouteGestor/>, children: [{path:"",element:<DashbordGestor/>}]},
       {path:"/register",element:<Register/>},

@@ -8,12 +8,12 @@ export default function Logout(){
     useEffect(()=>{
         localStorage.clear();
         navigate("/",{
-            state: {message: "LogOut sucefully"}
+            state: {message: "Deslogado"}
         });
     },[navigate])
     return (
         <div>
-            loggin out
+            Saindo
         </div>
     )
 }
