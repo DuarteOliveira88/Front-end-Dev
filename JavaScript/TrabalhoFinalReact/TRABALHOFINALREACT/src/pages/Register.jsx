@@ -6,7 +6,6 @@ export default function Signup() {
     const [passwordAreNotEqual, setPasswordAreNotEqual] = useState(false)
     const navigate = useNavigate()
     const logado=localStorage.getItem("role");
-    console.log("", logado)
     function handleSubmit(event) {
         event.preventDefault()
         const formData= new FormData(event.target)
@@ -37,8 +36,8 @@ export default function Signup() {
    
     return (
       <form onSubmit={handleSubmit}>
-        <h2>Welcome on board!</h2>
-        <p>We just need a little bit of data from you to get you started 🚀</p>
+        <h2 className="form-header">Bem vindo a El Celler de Can Roca</h2>
+        <p className="form-header">So mais uns dados e podemos fazer a sua refeição perfeita</p>
  
         <div className="control">
           <label htmlFor="email">Email</label>
@@ -52,7 +51,7 @@ export default function Signup() {
           </div>
  
           <div className="control">
-            <label htmlFor="confirm-password">Confirm Password</label>
+            <label htmlFor="confirm-password">Confirma Password</label>
             <input required
               id="confirm-password"
               type="password"
@@ -68,18 +67,18 @@ export default function Signup() {
  
         <div className="control-row">
           <div className="control">
-            <label htmlFor="first-name">First Name</label>
+            <label htmlFor="first-name">Primeiro nome</label>
             <input type="text" id="first-name" name="first-name" required/>
           </div>
  
           <div className="control">
-            <label htmlFor="last-name">Last Name</label>
+            <label htmlFor="last-name">Ultimo nome</label>
             <input type="text" id="last-name" name="last-name" required/>
           </div>
         </div>
  
         <div className="control">
-          <label htmlFor="phone">What best describes your role?</label>
+          <label htmlFor="phone">Tipo de conta</label>
           <select id="role" name="role" required>
             <option value="Cliente">Cliente</option>
             {(logado=="Cozinheiro" || logado=="Gestor") && <option value="Cozinheiro">Cozinheiro</option>}
@@ -94,7 +93,7 @@ export default function Signup() {
  
         <p className="form-actions">
           <button type="submit" className="button">
-            Sign up
+            Registar
           </button>
         </p>
       </form>

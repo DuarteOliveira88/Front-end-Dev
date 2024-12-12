@@ -1,0 +1,49 @@
+
+.encomenda-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+
+  .encomenda-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .encomenda-header h1 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .encomenda-header h3 {
+    font-size: 18px;
+    color: #666;
+  }
+
+  .encomenda-main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .btn-pagamento {
+    align-self: center;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .btn-pagamento:hover {
+    background-color: #0056b3;
+  }
+  
+
+  .fallback-text {
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+  }
+  

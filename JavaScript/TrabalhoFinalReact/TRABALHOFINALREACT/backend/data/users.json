@@ -1,20 +1,38 @@
 [
   {
-    "email": "a@a.com",
-    "password": "a",
-    "confirmPassword": "a",
-    "first-name": "aa",
-    "last-name": "a",
-    "role": "Gestor",
-    "terms": "on"
-  },
-  {
-    "email": "cozinha@email.com",
+    "email": "cliente@gmail.com",
     "password": "a",
     "confirmPassword": "a",
     "first-name": "Duarte",
     "last-name": "Oliveira",
+    "role": "Cliente",
+    "terms": "on"
+  },
+  {
+    "email": "cozinha@gmail.com",
+    "password": "a",
+    "confirmPassword": "a",
+    "first-name": "Vitor",
+    "last-name": "Oliveira",
     "role": "Cozinheiro",
+    "terms": "on"
+  },
+  {
+    "email": "gestor@gmail.com",
+    "password": "a",
+    "confirmPassword": "a",
+    "first-name": "Sara",
+    "last-name": "Oliveira",
+    "role": "Gestor",
+    "terms": "on"
+  },
+  {
+    "email": "mae@gmail.com",
+    "password": "a",
+    "confirmPassword": "a",
+    "first-name": "Aldina",
+    "last-name": "Ferreira",
+    "role": "Cliente",
     "terms": "on"
   }
 ]

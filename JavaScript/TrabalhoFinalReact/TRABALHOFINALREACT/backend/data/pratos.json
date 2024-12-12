@@ -1,12 +1,66 @@
 [
-    {
-        "id":"p1",
-        "nomePrato":"Arroz de pato",
-        "tipo":"prato principal",
-        "image": {
-            "src":"fula_arrozpato_5.jpg",
-            "alt":"Arroz de pato"
-        },
-        "preco":"10€"
-    }
+  {
+    "id": "p1",
+    "nomePrato": "Arroz de pato",
+    "tipo": "prato principal",
+    "image": {
+      "src": "fula_arrozpato_5.jpg",
+      "alt": "Arroz de pato"
+    },
+    "preco": "15€",
+    "status": ""
+  },
+  {
+    "id": "p2",
+    "nomePrato": "arroz de marisco",
+    "tipo": "prato principal",
+    "image": {
+      "src": "arroz de marisco.jpg",
+      "alt": "arroz-de-marisco"
+    },
+    "preco": "18€",
+    "status": ""
+  },
+  {
+    "id": "p3",
+    "nomePrato": "baba de camelo",
+    "tipo": "sobremesa",
+    "image": {
+      "src": "baba de camelo.jpg",
+      "alt": "baba de camelo"
+    },
+    "preco": "5€",
+    "status": ""
+  },
+  {
+    "id": "p4",
+    "nomePrato": "pasteis de nata",
+    "tipo": "sobremesa",
+    "image": {
+      "src": "pasteis de nata.jpg",
+      "alt": "pasteis de nata"
+    },
+    "preco": "3€",
+    "status": ""
+  },{
+    "id": "p5",
+    "nomePrato": "pate de sardinha",
+    "tipo": "entrada",
+    "image": {
+      "src": "pate de sardinha.jpg",
+      "alt": "pate de sardinha"
+    },
+    "preco": "7€",
+    "status": ""
+  },{
+    "id": "p6",
+    "nomePrato": "pica pau",
+    "tipo": "entrada",
+    "image": {
+      "src": "pica pau.jpg",
+      "alt": "pica pau"
+    },
+    "preco": "7€",
+    "status": ""
+  }
 ]

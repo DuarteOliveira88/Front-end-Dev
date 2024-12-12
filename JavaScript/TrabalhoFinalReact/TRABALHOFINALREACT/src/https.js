@@ -29,3 +29,22 @@ export async function updatePratos(userPratos) {
     }
     return data.message;
 }
+export async function pagamentoPratos(pratos) {
+    try {
+      const response = await fetch("http://localhost:3000/pratosConsumidor", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pratos }), // Envia o array de pratos
+      });
+  
+      if (!response.ok) {
+        throw new Error("Erro ao atualizar os pratos.");
+      }
+  
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Erro na atualização dos pratos:", error);
+      throw error; // Relança o erro para permitir tratamento posterior
+    }
+  }

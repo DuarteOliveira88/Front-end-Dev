@@ -1,0 +1,39 @@
+.navbar {
+    background-color: #333;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between; /* Alinha o logo à esquerda e os links à direita */
+    align-items: center;
+}
+
+.logo-container {
+    flex: 1; /* Permite que o logo ocupe o espaço disponível */
+}
+
+.logo {
+    height: 40px; /* Define a altura do logo */
+    width: auto; /* Mantém a proporção do logo */
+}
+
+.nav-list {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-item {
+    margin: 0;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #555; /* Adiciona efeito de hover */
+}

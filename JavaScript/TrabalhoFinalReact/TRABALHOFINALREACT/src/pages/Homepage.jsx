@@ -6,7 +6,7 @@ export default function Homepage(){
     const message=location.state?.message;
     return (
         <div>
-            <h1>Estou em casa</h1>
+            <h1>Bem vindo a El Celler de Can Roca</h1>
             {message && <div>{message}</div>}
         </div>
     )
