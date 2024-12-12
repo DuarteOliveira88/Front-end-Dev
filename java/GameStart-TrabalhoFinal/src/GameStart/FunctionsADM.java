@@ -2,6 +2,7 @@ package GameStart;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 import static GameStart.Menus.filesMenu;
@@ -196,23 +197,34 @@ public class FunctionsADM {
         Scanner in=new Scanner(new File(pathMenuFiles("vendas")));
         in.nextLine();
         double[] categorias=new double[contaLines(pathMenuFiles("categorias"))];
+        String[][] matrizCategorias=new String[contaLines(pathMenuFiles("categorias"))][2];
+        Scanner inCategorias=new Scanner(new File(pathMenuFiles("categorias")));
+        inCategorias.nextLine();
+        int indexMatriz=0;
+        while (inCategorias.hasNextLine()){
+            String[] cont=inCategorias.nextLine().split(";");
+            matrizCategorias[indexMatriz][0]=cont[0];
+            matrizCategorias[indexMatriz][1]=cont[1];
+            indexMatriz++;
+        }
         while (in.hasNextLine()){
             String[] cont=in.nextLine().split(";");
-            switch (cont[3]){
-                case "RPG":
-                    categorias[0]+=Double.parseDouble(cont[5])*10/100;
-                    break;
-                case "Metroidvania":
-                    categorias[1]+=Double.parseDouble(cont[5])*25/100;
-                    break;
-                case "Estrategia":
-                    categorias[2]+=Double.parseDouble(cont[5])*17.5/100;
-                    break;
-                case "Festa":
-                    categorias[3]+=Double.parseDouble(cont[5])*50/100;
-                    break;
+            for (int i = 0; i < contaLines(pathMenuFiles("categorias")); i++) {
+                if(matrizCategorias[i][0].equals(cont[3])){
+                    categorias[i]+=Double.parseDouble(cont[5])*Double.parseDouble(matrizCategorias[i][1])/100;
+                }
             }
         }
+        System.out.println(Arrays.toString(categorias));
+        double aux=0;
+        int indexMelhor=-1;
+        for (int i = 0; i < categorias.length; i++) {
+            if(categorias[i]>=aux){
+                aux=categorias[i];
+                indexMelhor=i;
+            }
+        }
+        System.out.println("A melhor categoria e: "+matrizCategorias[indexMelhor][0]);
     }
     public static void main(String[] args) throws FileNotFoundException {
         //userLogin("it","rojao");
@@ -223,6 +235,7 @@ public class FunctionsADM {
         //System.out.println(jogoCaro()+"\t||\t"+valorJogoCaro());
         //imprimeJogoComprado(jogoCaro());
         //System.out.println("O id do melhor cliente e: "+melhorCliente());
-        pesqCliente(melhorCliente());
+        //pesqCliente(melhorCliente());
+        melhorCategoria();
     }
 }
