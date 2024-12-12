@@ -163,13 +163,66 @@ public class FunctionsADM {
             }
         }
     }
+    public static int contaLines(String path) throws FileNotFoundException {
+        Scanner in = new Scanner(new File(path));
+        in.nextLine();
+        int numLinhas=0;
+        while (in.hasNextLine()){
+            numLinhas++;
+            in.nextLine();
+        }
+        return numLinhas;
+    }
+    public static String melhorCliente() throws FileNotFoundException {
+        Scanner in =new Scanner(new File(pathMenuFiles("vendas")));
+        in.nextLine();
+        double[] clientes=new double[contaLines(pathMenuFiles("clientes"))];
+        while (in.hasNextLine()){
+            String line=in.nextLine();
+            String[] cont=line.split(";");
+            clientes[Integer.parseInt(cont[1])-1]+=Double.parseDouble(cont[5]);
+        }
+        int id=-1;
+        double aux=0;
+        for (int i = 0; i < clientes.length; i++) {
+            if(clientes[i]>=aux){
+                aux=clientes[i];
+                id=i+1;
+            }
+        }
+        return String.valueOf(id);
+    }
+    public static void melhorCategoria() throws FileNotFoundException {
+        Scanner in=new Scanner(new File(pathMenuFiles("vendas")));
+        in.nextLine();
+        double[] categorias=new double[contaLines(pathMenuFiles("categorias"))];
+        while (in.hasNextLine()){
+            String[] cont=in.nextLine().split(";");
+            switch (cont[3]){
+                case "RPG":
+                    categorias[0]+=Double.parseDouble(cont[5])*10/100;
+                    break;
+                case "Metroidvania":
+                    categorias[1]+=Double.parseDouble(cont[5])*25/100;
+                    break;
+                case "Estrategia":
+                    categorias[2]+=Double.parseDouble(cont[5])*17.5/100;
+                    break;
+                case "Festa":
+                    categorias[3]+=Double.parseDouble(cont[5])*50/100;
+                    break;
+            }
+        }
+    }
     public static void main(String[] args) throws FileNotFoundException {
         //userLogin("it","rojao");
         //printFile();
         //System.out.println("Num de vendas: "+ numVendas()+"\nTotal de vendas: "+valorVendas());
         //System.out.println("O lucro total e: "+totalLucro());
         //pesqCliente("1");
-        System.out.println(jogoCaro()+"\t||\t"+valorJogoCaro());
-        imprimeJogoComprado(jogoCaro());
+        //System.out.println(jogoCaro()+"\t||\t"+valorJogoCaro());
+        //imprimeJogoComprado(jogoCaro());
+        //System.out.println("O id do melhor cliente e: "+melhorCliente());
+        pesqCliente(melhorCliente());
     }
 }
