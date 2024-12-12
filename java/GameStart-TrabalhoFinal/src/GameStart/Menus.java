@@ -76,10 +76,9 @@ public class Menus {
     }
     public static void filesMenu(){
         System.out.print("\n-----------------Selecione o ficheiro-----------------\n");
-        System.out.println("1. Ficheiros de login.");
-        System.out.println("2. Ficheiros de categorias.");
-        System.out.println("3. Ficheiros de clientes.");
-        System.out.println("4. Ficeiros de vendas.");
+        System.out.println("1. Ficheiros de categorias.");
+        System.out.println("2. Ficheiros de clientes.");
+        System.out.println("3. Ficeiros de vendas.");
         System.out.println("Prima sair para sair do programa.");
         System.out.print("------------------------------------------------------\n");
     }

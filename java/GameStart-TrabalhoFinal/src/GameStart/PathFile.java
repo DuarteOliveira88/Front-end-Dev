@@ -1,7 +1,7 @@
 package GameStart;
 
 public class PathFile {
-    public String pathMenuFiles(String path){
+    public static String pathMenuFiles(String path){
         String pathFile;
         switch (path){
             case "login":
@@ -21,7 +21,7 @@ public class PathFile {
         }
         return pathFile;
     }
-    public String pathMenuFilesNum(int num){
+    public static String pathMenuFilesNum(int num){
         String pathFile;
         switch (num){
             case 1:
@@ -40,5 +40,9 @@ public class PathFile {
                 throw new IllegalStateException("Unexpected value: " + num);
         }
         return pathFile;
+    }
+
+    public static void main(String[] args) {
+
     }
 }
