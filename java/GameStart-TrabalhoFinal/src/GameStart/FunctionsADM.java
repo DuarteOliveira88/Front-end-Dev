@@ -43,16 +43,25 @@ public class FunctionsADM {
             System.out.println("USERNAME NAO RECONHECIDO");
             System.out.print("------------------------------------------------\n");
         }
+        in.close();
         return true;
     }
+
+    /**
+     * Funcao para escrever qualquer ficheiro disponivel ao ADM
+     * @throws FileNotFoundException Caso nao encontre ficheiro
+     */
     public static void printFile() throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
-        filesMenu();
         String option;
+        do {
+            filesMenu();
+
         do {
             System.out.print("Input: ");
             option= input.next();
         }while (!(option.equals("1")||option.equals("2")||option.equals("3")||option.toLowerCase().trim().equals("sair")));
+        System.out.println("------------------------------------------------------");
         if(!option.equals("sair")) {
             switch (String.valueOf(Integer.parseInt(option)+1)){
                 case "2":
@@ -65,10 +74,20 @@ public class FunctionsADM {
                     ficheiroVendas(option);
                     break;
                 default:
-                    System.out.println("Deu erro");
             }
         }
+        }while (!option.toLowerCase().trim().equals("sair"));
+        System.out.println("Voltando ao menu principal ADM");
+
+
+
     }
+
+    /**
+     * Funcao para escrever o ficheiro das categorias formatado
+     * @param option Posicao do path na funcao
+     * @throws FileNotFoundException Caso nao encontre ficheiro
+     */
     public static void ficheiroCategorias(String option) throws FileNotFoundException {
         Scanner in = new Scanner(new File(pathMenuFilesNum(Integer.parseInt(option)+1)));
         System.out.printf("%-15s   %-10s%n", "Nome Categoria", "Percentagem");
@@ -77,7 +96,14 @@ public class FunctionsADM {
             String[] cont =in.nextLine().split(";");
             System.out.printf("%-15s | %-10s%n", cont[0], cont[1]);
         }
+        in.close();
     }
+
+    /**
+     * Funcao para escrever o ficheiro dos clientes formatado
+     * @param option Posicao do path na funcao
+     * @throws FileNotFoundException Caso nao encontre ficheiro
+     */
     public static void ficheiroClientes(String option) throws FileNotFoundException {
         Scanner in = new Scanner(new File(pathMenuFilesNum(Integer.parseInt(option)+1)));
         in.nextLine();
@@ -86,7 +112,14 @@ public class FunctionsADM {
             String[] cont =in.nextLine().split(";");
             System.out.printf("%-4s | %-22s | %-15s | %-30s%n", cont[0], cont[1], cont[2], cont[3]);
         }
+        in.close();
     }
+
+    /**
+     * Funcao para escrever o ficheiro das vendas formatado
+     * @param option Posicao do path na funcao
+     * @throws FileNotFoundException Caso nao encontre ficheiro
+     */
     public static void ficheiroVendas(String option) throws FileNotFoundException {
         Scanner in = new Scanner(new File(pathMenuFilesNum(Integer.parseInt(option)+1)));
         in.nextLine();
@@ -95,7 +128,14 @@ public class FunctionsADM {
             String[] cont =in.nextLine().split(";");
             System.out.printf("%-10s | %-10s | %-21s | %-15s | %-32s | %-10s%n", cont[0], cont[1], cont[2], cont[3], cont[4], cont[5]);
         }
+        in.close();
     }
+
+    /**
+     * Funcao para saber o numero de vendas
+     * @return numero de vendas
+     * @throws FileNotFoundException Caso nao encontre ficheiro
+     */
     public static int numVendas() throws FileNotFoundException {
         Scanner in = new Scanner(new File(pathMenuFiles("vendas")));
         int numVendas=0;
@@ -104,8 +144,15 @@ public class FunctionsADM {
             numVendas++;
             in.nextLine();
         }
+        in.close();
         return numVendas;
     }
+
+    /**
+     * Funcao para calcular o valor total das vendas
+     * @return valor total das vendas
+     * @throws FileNotFoundException Caso nao encontre ficheiro
+     */
     public static double valorVendas() throws FileNotFoundException {
         Scanner in = new Scanner(new File(pathMenuFiles("vendas")));
         double totalVendas=0;
@@ -115,8 +162,15 @@ public class FunctionsADM {
             String[] cont=line.split(";");
             totalVendas+=Double.parseDouble(cont[5]);
         }
+        in.close();
         return totalVendas;
     }
+
+    /**
+     * Funcao para calcular o valor total do lucro das vendas
+     * @return valor total do lucro das vendas
+     * @throws FileNotFoundException Caso nao encontre ficheiro
+     */
     public static double totalLucro() throws FileNotFoundException {
         Scanner inVendas = new Scanner(new File(pathMenuFiles("vendas")));
         double lucroTotal=0;
@@ -134,8 +188,15 @@ public class FunctionsADM {
                 }
             }
         }
+        inVendas.close();
         return lucroTotal;
     }
+
+    /**
+     * Funcao para pesquisar e escrever todas as informaçoes de um cliente dado o seu id
+     * @param idCliente id que se pretende pesquisar
+     * @throws FileNotFoundException Caso nao encontre ficheiro
+     */
     public static void pesqCliente(String idCliente) throws FileNotFoundException {
         Scanner in = new Scanner(new File(pathMenuFiles("clientes")));
         in.nextLine();
@@ -153,7 +214,14 @@ public class FunctionsADM {
         if (notFind){
             System.out.printf("Id cliente nao reconhecido.");
         }
+        in.close();
     }
+
+    /**
+     * Funcao para saber qual jogo e o mais caro
+     * @return jogo mais caro
+     * @throws FileNotFoundException Caso nao encontre ficheiro
+     */
     public static String jogoCaro() throws FileNotFoundException {
         Scanner inVendas = new Scanner(new File(pathMenuFiles("vendas")));
         inVendas.nextLine();
@@ -167,8 +235,15 @@ public class FunctionsADM {
                 jogoMaisCaro=cont[4];
             }
         }
+        inVendas.close();
         return jogoMaisCaro;
     }
+
+    /**
+     * Funcao para saber o valor do jogo mais caro
+     * @return valor do jogo mais caro
+     * @throws FileNotFoundException Caso nao encontre ficheiro
+     */
     public static double valorJogoCaro()throws FileNotFoundException{
         Scanner inVendas = new Scanner(new File(pathMenuFiles("vendas")));
         inVendas.nextLine();
@@ -180,11 +255,19 @@ public class FunctionsADM {
                 valorJogo=Double.parseDouble(cont[5]);
             }
         }
+        inVendas.close();
         return valorJogo;
     }
+
+    /**
+     * Funcao para imprimir O nome dos clientes que compram o jogo
+     * @param jogo Jogo que os clientes compraram
+     * @throws FileNotFoundException Caso nao encontre ficheiro
+     */
     public static void imprimeJogoComprado(String jogo)throws FileNotFoundException{
         Scanner inVendas = new Scanner(new File(pathMenuFiles("vendas")));
         inVendas.nextLine();
+        System.out.println("************** Clientes que compraram "+jogo+" **************");
         while (inVendas.hasNextLine()) {
             String line = inVendas.nextLine();
             String[] cont = line.split(";");
@@ -200,7 +283,16 @@ public class FunctionsADM {
                 }
             }
         }
+        System.out.println("**************************************************************");
+        inVendas.close();
     }
+
+    /**
+     * Funcao para contar as linhas de um ficheiro
+     * @param path Caminho do ficheiro
+     * @return numero de linhas
+     * @throws FileNotFoundException Caso nao encontre ficheiro
+     */
     public static int contaLines(String path) throws FileNotFoundException {
         Scanner in = new Scanner(new File(path));
         in.nextLine();
@@ -209,8 +301,15 @@ public class FunctionsADM {
             numLinhas++;
             in.nextLine();
         }
+        in.close();
         return numLinhas;
     }
+
+    /**
+     * Funcao para saber quem e o melhor cliente
+     * @return id do melhor cliente
+     * @throws FileNotFoundException Caso nao encontre ficheiro
+     */
     public static String melhorCliente() throws FileNotFoundException {
         Scanner in =new Scanner(new File(pathMenuFiles("vendas")));
         in.nextLine();
@@ -228,8 +327,14 @@ public class FunctionsADM {
                 id=i+1;
             }
         }
+        in.close();
         return String.valueOf(id);
     }
+
+    /**
+     * Funcao para imprimir a melhor categoria
+     * @throws FileNotFoundException Caso nao encontre ficheiro
+     */
     public static void melhorCategoria() throws FileNotFoundException {
         Scanner in=new Scanner(new File(pathMenuFiles("vendas")));
         in.nextLine();
@@ -252,7 +357,6 @@ public class FunctionsADM {
                 }
             }
         }
-        System.out.println(Arrays.toString(categorias));
         double aux=0;
         int indexMelhor=-1;
         for (int i = 0; i < categorias.length; i++) {
@@ -261,8 +365,16 @@ public class FunctionsADM {
                 indexMelhor=i;
             }
         }
+        in.close();
+        inCategorias.close();
         System.out.println("A melhor categoria e: "+matrizCategorias[indexMelhor][0]);
     }
+
+    /**
+     * Funcao para imprimir todas as informaçoes dos clientes que compraram um jogo
+     * @param jogo jogo em questao
+     * @throws FileNotFoundException Caso nao encontre ficheiro
+     */
     public static void pesquisaVendas(String jogo) throws FileNotFoundException {
         Scanner inVendas = new Scanner(new File(pathMenuFiles("vendas")));
         inVendas.nextLine();
@@ -282,14 +394,20 @@ public class FunctionsADM {
                 }
             }
         }
+        inVendas.close();
         System.out.println("***********************************************");
     }
+
+    /**
+     * Funcao que retorna uma matriz com todos os jogos e quanto cada um locrou
+     * @return matriz com todos os jogos e quanto cada um locrou
+     * @throws FileNotFoundException Caso nao encontre ficheiro
+     */
     public static String[][] matrizJogosLucro() throws FileNotFoundException {
         String[][] jogosLucro = new String[quantosJogosSemDup()][2];
         Scanner in = new Scanner(new File(pathMenuFiles("vendas")));
         in.nextLine();
-        String[] jogosSemDup=new String[quantosJogosSemDup()];
-        jogosSemDup=jogosSemDup();
+        String[] jogosSemDup=jogosSemDup();
         int index=0;
         for(String jogo: jogosSemDup){
             jogosLucro[index][0]=jogo;
@@ -318,8 +436,16 @@ public class FunctionsADM {
                 }
             }
         }
+        in.close();
+        inCategorias.close();
         return jogosLucro;
     }
+
+    /**
+     * Funcao para ordenar por ordem crescente a matriz dos jogos com o seu respetivo lucro
+     * @param matriz matriz dos jogos com o seu respetivo lucro
+     * @return matriz dos jogos ordenada por ordem crescente
+     */
     public static String[][] organizaMatriz(String[][] matriz){
         boolean trocou;
         for (int i = 0; i < matriz.length-1; i++) {
@@ -341,6 +467,11 @@ public class FunctionsADM {
         }
         return matriz;
     }
+
+    /**
+     * Funcao para escrever os TOP 5 jogos que mais a loja mais lucrou
+     * @param matrizOrdenada matriz com jogos e respetivos lucros ordenada
+     */
     public static void top5Jogos(String[][] matrizOrdenada){
         System.out.println("********** TOP 5 Jogos **********");
         System.out.printf("%-4s   %-25s   %-10s%n", "Nº", "Jogo", "Lucrou");
@@ -350,6 +481,11 @@ public class FunctionsADM {
             lugar++;
         }
     }
+
+    /**
+     * Funcao para escrever os BOTTOM 5 jogos que mais a loja mais lucrou
+     * @param matrizOrdenada matriz com jogos e respetivos lucros ordenada
+     */
     public static void  bot5Jogos(String[][] matrizOrdenada){
         System.out.println("********** BOTTOM 5 Jogos **********");
         System.out.printf("%-4s   %-30s   %-10s%n", "Nº", "Jogo", "Lucrou");
@@ -357,21 +493,24 @@ public class FunctionsADM {
             System.out.printf("%-4s | %-30s | %-10s%n",i+1,matrizOrdenada[i][0],matrizOrdenada[i][1]);
         }
     }
+
+
     public static void main(String[] args) throws FileNotFoundException {
         //userLogin("it","rojao");
         //printFile();
         //System.out.println("Num de vendas: "+ numVendas()+"\nTotal de vendas: "+valorVendas());
         //System.out.println("O lucro total e: "+totalLucro());
         //pesqCliente("1");
-        //System.out.println(jogoCaro()+"\t||\t"+valorJogoCaro());
-        //imprimeJogoComprado(jogoCaro());
+        System.out.println(jogoCaro()+"\t||\t"+valorJogoCaro());
+        imprimeJogoComprado(jogoCaro());
+        pesquisaVendas(jogoCaro());
         //System.out.println("O id do melhor cliente e: "+melhorCliente());
-        pesqCliente(melhorCliente());
+        //pesqCliente(melhorCliente());
         //melhorCategoria();
         //String[][] jogosLucroMatriz=matrizJogosLucro();
-        String[][] jogosOrdenados=organizaMatriz(matrizJogosLucro());
-        top5Jogos(jogosOrdenados);
-        bot5Jogos(jogosOrdenados);
-        pesquisaVendas("Sims 4 Digital Deluxe");
+        //String[][] jogosOrdenados=organizaMatriz(matrizJogosLucro());
+        //top5Jogos(jogosOrdenados);
+        //bot5Jogos(jogosOrdenados);
+        //pesquisaVendas("Sims 4 Digital Deluxe");
     }
 }

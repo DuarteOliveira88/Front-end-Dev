@@ -41,7 +41,18 @@ public class PathFile {
         }
         return pathFile;
     }
-
+    public static String catalogoGrafico(String option){
+        return switch (option) {
+            case "1" -> "Files/CatalogoGrafico/callOfDuty.txt";
+            case "2" -> "Files/CatalogoGrafico/fifa.txt";
+            case "3" -> "Files/CatalogoGrafico/hollowKnight.txt";
+            case "4" -> "Files/CatalogoGrafico/minecraft.txt";
+            case "5" -> "Files/CatalogoGrafico/mortalKombat.txt";
+            case "6" -> "Files/CatalogoGrafico/overcooked.txt";
+            case "7" -> "Files/CatalogoGrafico/witcher3.txt";
+            default -> "";
+        };
+    }
     public static void main(String[] args) {
 
     }

@@ -71,15 +71,19 @@ public class Menus {
         System.out.println("5. Mortal Kombat.");
         System.out.println("6. Overcooked.");
         System.out.println("7. Withcer 3.");
-        System.out.println("Prima sair para sair do programa.");
+        System.out.println("Prima sair para voltar dao menu Cliente.");
         System.out.print("--------------------------------------------------\n");
     }
+
+    /**
+     * Funcao para imprimir que ficheiros o ADM pode ver
+     */
     public static void filesMenu(){
         System.out.print("\n-----------------Selecione o ficheiro-----------------\n");
         System.out.println("1. Ficheiros de categorias.");
         System.out.println("2. Ficheiros de clientes.");
         System.out.println("3. Ficeiros de vendas.");
-        System.out.println("Prima sair para sair do programa.");
+        System.out.println("Prima sair para voltar ao menu ADM.");
         System.out.print("------------------------------------------------------\n");
     }
     public static void main(String[] args) throws FileNotFoundException {
